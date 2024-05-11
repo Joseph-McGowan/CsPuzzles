@@ -142,6 +142,7 @@ void test() {
     char a = std::cin.get();
     int b = a ;
     std::cout << b;
+    int gitTest;
 }
 
 int main() {
