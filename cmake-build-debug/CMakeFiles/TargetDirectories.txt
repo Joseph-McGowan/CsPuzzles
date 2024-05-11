@@ -1,3 +1,4 @@
-C:/Projects/CommonSenseProgramming/cmake-build-debug/CMakeFiles/CommonSenseProgramming.dir
-C:/Projects/CommonSenseProgramming/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Projects/CommonSenseProgramming/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/josep/CsPuzzles/cmake-build-debug/CMakeFiles/CommonSenseProgramming.dir
+C:/Users/josep/CsPuzzles/cmake-build-debug/CMakeFiles/inputHandling.dir
+C:/Users/josep/CsPuzzles/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/josep/CsPuzzles/cmake-build-debug/CMakeFiles/rebuild_cache.dir

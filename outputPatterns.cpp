@@ -22,12 +22,6 @@ void printSidewaysTriangle (int n = 5) {
     }
 
 
-    // printRightTriangle(n);
-
-
-
-
-
 }
 
 
