@@ -44,6 +44,7 @@ void printDiamond(int n) {
             cout << '#';
         }
     cout << '\n';
+        //hello test
     }
 }
 
