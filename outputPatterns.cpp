@@ -24,10 +24,32 @@ void printSidewaysTriangle (int n = 5) {
 
 }
 
+void printTriangle (int n) {
+    for (int i = 0; i < n; i = i + 2) {
+        for (int a = 0; a < i/2 ;a++)
+            cout << ' ';
+
+        for (int j = i; j < n ; ++j) {
+            cout << '#';
+
+        }
+        cout << '\n';
+
+    }
+}
+
+void printDiamond(int n) {
+    for (int i = 0; i < n; i = i + 2) {
+        for (int j = 0; j < i ; ++j) {
+            cout << '#';
+        }
+    cout << '\n';
+    }
+}
 
 
 int main() {
 
-    printSidewaysTriangle();
+    printDiamond(5);
     return 0;
 }
