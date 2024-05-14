@@ -39,18 +39,23 @@ void printTriangle (int n) {
 }
 
 void printDiamond(int n) {
-    for (int i = 0; i < n; i = i + 2) {
-        for (int j = 0; j < i ; ++j) {
-            cout << '#';
-        }
-    cout << '\n';
-        //hello test
+    for (int i = 0; i < n; i = i +2) {
+        for (int a = 0 ; a < (n - i) /2; a++)
+            cout << ' ';
+        for (int j = 0; j <= i; ++j)
+            cout << "#";
+        cout << '\n';
     }
+
+
+    printTriangle(n);
 }
 
 
 int main() {
 
-    printDiamond(5);
+    printTriangle(4);
+    cout << '\n';
+    printDiamond(7);
     return 0;
 }
