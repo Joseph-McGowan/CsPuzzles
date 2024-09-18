@@ -3,7 +3,9 @@ project(CommonSenseProgramming)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(CommonSenseProgramming outputPatterns.cpp)
+add_executable(CommonSenseProgramming IO/outputPatterns.cpp)
 
-add_executable(inputHandling inputHandling.cpp)
-add_executable(outputPatterns outputPatterns.cpp)
+add_executable(inputHandling IO/inputHandling.cpp)
+add_executable(outputPatterns IO/outputPatterns.cpp)
+add_executable(arraysBasics Arrays/arraysBasics.cpp)
+add_executable(3.1 Arrays/3.1.cpp)
