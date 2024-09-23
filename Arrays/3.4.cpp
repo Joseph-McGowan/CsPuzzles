@@ -28,6 +28,26 @@ char* convertString(char* stringToConvert, int messageSize) {
 
 }
 
+char* decodeString(char* cipherText, int messageSize) {
+    //reverse of encoding
+    //Ex 3.5
+
+    const char conversionTable[26] = {'A', 'B', 'C','D', 'E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+
+    for (int i = 0; i < messageSize; i++) {
+        int charKey = int(cipherText[i]);
+        cout << charKey << "\n";
+        if (charKey == 32) {
+            continue;
+        }
+        cipherText[i] = conversionTable[charKey - 67];
+    }
+
+    return cipherText;
+
+}
+
+
 
 int main() {
 
@@ -36,6 +56,10 @@ int main() {
     char* converted = convertString(test, (strlen(test)));
 
     cout << converted << endl;
+
+    char* decoded = decodeString(converted, strlen(converted));
+
+    cout << decoded << endl;
 
     return 1;
 }
