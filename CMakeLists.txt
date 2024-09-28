@@ -16,3 +16,4 @@ add_executable(3.6 Arrays/3.6.cpp)
 add_executable(3.7 Arrays/3.7.cpp
         Arrays/3.7.cpp)
 add_executable(3.8 Arrays/3.8.cpp)
+add_executable(4.1 Pointers/4.1.cpp)
