@@ -29,9 +29,45 @@ void viewRecord(agentNode agent) { //View record of specific agent
         s = s->next;
 
     }
+
+    cout << "\n";
 }
 
+double calculateAverage(salesCollection* s) {
+    double noMonths = 0;
+    double total = 0;
 
+
+    do {
+        noMonths++;
+        total += s->value;
+        s = s->next;
+    } while (s->next != nullptr);
+
+    noMonths++;
+    total+= s->value;
+
+    return {total / noMonths};
+
+}
+
+void appendRecord(agentNode& agent, int salesFigure) { //Append months of sales to agent Collection
+
+    salesCollection * newSales = new salesCollection;
+    newSales->value = salesFigure;
+    newSales->next = nullptr;
+
+    salesCollection* s = agent.agentSales;
+    while(s->next != nullptr)
+        s = s->next;
+
+    s->next = newSales;
+    //make new salesFigure
+    //point current last salesfigure to new figure
+
+    newSales = nullptr;
+
+}
 
 
 int main() {
@@ -59,13 +95,21 @@ int main() {
 
     viewRecord(a1);
 
+    cout << calculateAverage(a1.agentSales) << "\n";
+
+    appendRecord(a1, 500);
+
+    viewRecord(a1);
+
+    cout << calculateAverage(a1.agentSales);
+
 
 }
 
 
-int appendRecord(agentNode agent, int salesFigure); //Append months of sales to agent Collection
 
 
 
-void calculateAverage(salesCollection s);
+
+
 
