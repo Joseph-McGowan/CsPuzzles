@@ -18,6 +18,16 @@ void removeRecord(studentCollection*& sc, int sNumber) {
     //loop through record until we find matching record
     studentCollection* a = sc;
 
+    //check first record separately
+    if(sc->studentId == sNumber) {
+        sc = sc->next;
+        delete a;
+        //delete sc;
+
+        return;
+    }
+
+
     bool found = true;
     while(a->next->studentId != sNumber) {
         a = a->next;
@@ -43,7 +53,11 @@ void removeRecord(studentCollection*& sc, int sNumber) {
 void printCollection(studentCollection* sc) {
 
     studentCollection * temp = sc;
-    while(temp->next != nullptr) {
+
+    if(temp == nullptr)
+        return;
+
+    while(temp->next != nullptr ) {
         cout << temp->studentName << " " << temp->grade << " \n";
         temp = temp->next;
     }
@@ -80,6 +94,13 @@ int main() {
 
     printCollection(sc);
 
+    removeRecord(sc, 1002);
+
+    printCollection(sc);
+
+    removeRecord(sc, 10001);
+
+    printCollection(sc);
 
 
 
