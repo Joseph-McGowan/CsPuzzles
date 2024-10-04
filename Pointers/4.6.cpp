@@ -51,6 +51,45 @@ char characterAt(int index, linkedString* s) {
 
 int strLen(linkedString sc);
 
+void concatenate(linkedString*& s1, linkedString* s2) {
+
+    linkedString* temp = s2;
+
+    while(temp->next != nullptr) {
+        strAppend(s1, temp->character);
+        temp = temp->next;
+    }
+
+    strAppend(s1, temp->character);
+
+}
+
+//void appendTest() {
+//
+//
+//    cout << characterAt(1, s) << endl;
+//
+//    strAppend(s, 't');
+//
+//    cout << characterAt(3, s);
+//}
+
+void printString(linkedString* s1) {
+
+    linkedString* temp = new linkedString;
+    temp = s1;
+
+    while(temp->next != nullptr) {
+        cout << temp->character;
+        temp = temp->next;
+    }
+
+    cout << temp->character;
+    cout << "\n";
+
+}
+
+
 
 int main() {
     linkedString* a = new linkedString;
@@ -69,16 +108,28 @@ int main() {
     linkedString* s = new linkedString;
 
     s = a;
-
     a = b = c = nullptr;
 
-    cout << characterAt(1, s) << endl;
+    linkedString* x = new linkedString;
+    linkedString* y = new linkedString;
 
-    strAppend(s, 't');
+    x->next = y;
+    x->character = 'p';
 
-    cout << characterAt(3, s);
+    y->next = nullptr;
+    y->character = 'u';
 
+    linkedString* s2 = new linkedString;
 
+    s2 = x;
+
+    x = y = nullptr;
+
+    concatenate(s, s2);
+
+    printString(s);
+
+    return 1;
 
 
 }
