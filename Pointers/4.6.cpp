@@ -89,6 +89,35 @@ void printString(linkedString* s1) {
 
 }
 
+void removeChars(linkedString*& s1, int startIndex, int noChars) {
+
+    linkedString* temp = new linkedString;
+    temp = s1;
+
+    int index = 1;
+
+    while(index != startIndex - 1){
+        if (temp->next == nullptr)
+            return;
+        temp = temp->next;
+        index++;
+    }
+
+    linkedString* startChar = new linkedString;
+    startChar = temp;
+    temp = temp->next;
+
+    int charCounter = 0;
+    while(charCounter != noChars && temp->next != nullptr) {
+
+        startChar->next = temp->next;
+        temp = nullptr;
+        temp = startChar->next;
+        charCounter++;
+    }
+
+
+}
 
 
 int main() {
@@ -126,6 +155,10 @@ int main() {
     x = y = nullptr;
 
     concatenate(s, s2);
+
+    printString(s);
+
+    removeChars(s, 2, 2);
 
     printString(s);
 
