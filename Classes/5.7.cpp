@@ -27,6 +27,7 @@ public:
     void addRecord(sn newNode);
     int averageRecord();
     int classSize();
+    sn recordsWithinRange(int minGrade, int maxGrade);
 
 
 private:
@@ -37,6 +38,23 @@ private:
 studentList::studentList() {
     this->_listHead = nullptr;
 }
+
+sn studentList::recordsWithinRange(int minGrade, int maxGrade) {
+    sn newList = new studentNode;
+    sn tempList = newList;
+
+    sn loopPtr = this->_listHead;
+
+    while (loopPtr != nullptr) {
+        if(loopPtr->sInfo.grade >= minGrade)
+            tempList->sInfo = loopPtr->sInfo;
+            tempList = tempList->next;
+            loopPtr = loopPtr->next;
+    }
+
+    return newList;
+}
+
 
 void studentList::addRecord(sn newNode) {
     //prepend record
