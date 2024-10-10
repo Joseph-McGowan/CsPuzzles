@@ -40,6 +40,9 @@ public:
     void concatenate(const varString& s);
     char characterAt(int index);
     void printString();
+    int strLength();
+    void remove(int startIndex, int charsToRemove);
+
 
 private:
     charPointer* _listHead;
@@ -52,7 +55,21 @@ private:
     }
     cp copiedString(const cp original);
 
+
 };
+
+int varString::strLength() {
+    int counter = 0;
+    cp loopPtr = this->_listHead;
+
+    while (loopPtr != nullptr) {
+        loopPtr = loopPtr->next;
+        counter++;
+    }
+
+    return counter;
+}
+
 void varString::printString() {
     cp temp = _listHead;
     while(temp!= nullptr) {
@@ -131,6 +148,54 @@ cp varString::copiedString(const cp original) {
     return newPointer;
 }
 
+void varString::remove(int startIndex, int charsToRemove) {
+
+    if (startIndex + charsToRemove > this->strLength() || startIndex > this->strLength()) {
+        cout << "Error";
+        return;
+    }
+
+    if (startIndex == 0) {
+        cp loopPtr  = this->_listHead;
+        while (charsToRemove != 0 && loopPtr != nullptr) {
+            cp temp = loopPtr;
+            loopPtr = loopPtr->next;
+            delete temp;
+            charsToRemove--;
+        }
+        this->_listHead = loopPtr;
+
+        return;
+    }
+
+
+    int loopCounter = 0;
+    cp tempLoop = this->_listHead;
+
+    //have pointer to char before startIndex
+
+
+    while(loopCounter != startIndex -1) {
+        loopCounter++;
+        tempLoop = tempLoop->next;
+    }
+
+    cp backMarker = tempLoop;
+    tempLoop = tempLoop->next;
+
+
+    while (tempLoop != nullptr && charsToRemove != 0 ) {
+        cp nodeToDelete = tempLoop;
+        tempLoop = tempLoop->next;
+        backMarker->next = tempLoop;
+        delete nodeToDelete;
+        charsToRemove--;
+    }
+
+
+}
+
+
 
 int main() {
     varString c;
@@ -150,6 +215,11 @@ int main() {
     //c.printString();
 
     char test = c[1];
-    cout << test;
+    //cout << test;
+
+    c.remove(0, 3);
+    c.printString();
+
+
 
 }
