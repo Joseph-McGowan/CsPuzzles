@@ -7,7 +7,7 @@
 
 using namespace std;
 
-//Binary Tree Defination
+//Tree Definition
 
 struct treeNode {
     int data;
