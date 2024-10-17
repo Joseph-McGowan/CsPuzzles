@@ -89,5 +89,7 @@ int main() {
 
     cout << node5->right->data;
 
+    char word[9] = "********"
+
 
 }
